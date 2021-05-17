@@ -1,14 +1,14 @@
 import React from 'react';
-import UpdateRestaurant from '../components/UpdateRestaurant';
+// import UpdateRestaurant from '../components/UpdateRestaurant';
 
 const UpdatePage = () => {
 	return (
 		<div>
-			<h1 className="text-center">Update Restaurant</h1>
-			<UpdateRestaurant />
+			{/* <h1 className="text-center">Update Restaurant</h1>
+			<UpdateRestaurant /> */}
 			Update
 		</div>
 	);
 };
 
-export default UpdatePage; 
+export default UpdatePage;
