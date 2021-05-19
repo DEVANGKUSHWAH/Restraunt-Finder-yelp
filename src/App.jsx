@@ -7,7 +7,7 @@ import RestaurantDetailPage from './routes/RestaurantDetailPage';
 const App = () => {
 	return (
 		// <RestaurantsContextProvider>
-		<div>
+		<div className="container">
 			<Router>
 				<Switch>
 					<Route exact path="/" component={Home} />
