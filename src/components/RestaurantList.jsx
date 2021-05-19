@@ -1,10 +1,22 @@
-import React from 'react';
-// import RestaurantFinder from "../apis/RestaurantFinder";
-// import { RestaurantsContext } from "../context/RestaurantsContext";
+import React, { useContext, useEffect } from 'react';
+import RestaurantFinder from '../apis/RestaurantFinder';
+import { RestaurantsContext } from '../context/RestaurantsContext';
 // import { useHistory } from "react-router-dom";
 // import StarRating from "./StarRating";
 
-const RestaurantList = () => { 
+const RestaurantList = (props) => {
+    const {restaurants, setRestaurants} = useContext(RestaurantsContext)
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await RestaurantFinder.get('/');
+				setRestaurants(response.data.data.restaurants)
+			} catch (err) {}
+		};
+
+		fetchData();
+	}, []);
+
 	return (
 		<div className="list-group">
 			<table className="table table-hover table-dark">
@@ -27,7 +39,7 @@ const RestaurantList = () => {
 						<td>
 							<button className="btn btn-warning">Update</button>
 						</td>
-						<td> 
+						<td>
 							<button className="btn btn-danger">Delete</button>
 						</td>
 					</tr>
