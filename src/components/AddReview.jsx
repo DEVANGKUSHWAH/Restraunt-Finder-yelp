@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
-// import RestaurantFinder from "../apis/RestaurantFinder";
-// import { useLocation, useParams, useHistory } from "react-router-dom";
+import RestaurantFinder from '../apis/RestaurantFinder';
+import { useLocation, useParams, useHistory } from 'react-router-dom';
 
 const AddReview = () => {
-	//   const { id } = useParams();
-	//   const location = useLocation();
-	//   console.log(location);
-	//   const history = useHistory();
-	//   console.log(id);
+	const { id } = useParams();
+	const location = useLocation();
+	console.log(location);
+	const history = useHistory();
+	console.log(id);
 
 	const [name, setName] = useState('');
 	const [reviewText, setReviewText] = useState('');
 	const [rating, setRating] = useState('Rating');
 
-	//   const handleSubmitReview = async (e) => {
-	//     e.preventDefault();
-	//     try {
-	//       const response = await RestaurantFinder.post(`/${id}/addReview`, {
-	//         name,
-	//         review: reviewText,
-	//         rating,
-	//       });
-	//       history.push("/");
-	//       history.push(location.pathname);
-	//     } catch (err) {}
-	//   };
+	const handleSubmitReview = async (e) => {
+		e.preventDefault();
+		try {
+			const response = await RestaurantFinder.post(`/${id}/addReview`, {
+				name,
+				review: reviewText,
+				rating,
+			});
+			history.push('/');
+			history.push(location.pathname);
+		} catch (err) {}
+	};
 	return (
 		<div className="mb-2">
 			<form action="">
@@ -55,7 +55,7 @@ const AddReview = () => {
 							<option value="4">4</option>
 							<option value="5">5</option>
 						</select>
-					</div>  
+					</div>
 				</div>
 				<div className="form-group">
 					<label htmlFor="Review">Review</label>
@@ -67,8 +67,8 @@ const AddReview = () => {
 					></textarea>
 				</div>
 				<button
-					//   type="submit"
-					//   onClick={handleSubmitReview}
+					type="submit"
+					onClick={handleSubmitReview}
 					className="btn btn-primary"
 				>
 					Submit
